@@ -37,12 +37,16 @@ import javax.swing.Box;
 import javax.swing.JSplitPane;
 import com.toedter.calendar.JCalendar;
 import com.toedter.calendar.JDateChooser;
+import javax.swing.JLabel;
+import java.awt.SystemColor;
 
 public class Purinfo extends JInternalFrame {
 
 	private JPanel contentPane;
 	private JTable table;
 	private JTextField bn;
+	private JTextField gnt;
+	private JTextField bt;
 
 	/**
 	 * Launch the application.
@@ -64,11 +68,13 @@ public class Purinfo extends JInternalFrame {
 	 * Create the frame.
 	 */
 	public Purinfo() {
+		setMaximizable(true);
+		setIconifiable(true);
 		setTitle("PURCHASE INFORMATION");
 		setResizable(true);
 		getContentPane().setBackground(Color.WHITE);
 		setClosable(true);
-		setBounds(100, 100, 1288, 590);
+		setBounds(100, 100, 1288, 661);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -77,7 +83,7 @@ public class Purinfo extends JInternalFrame {
 		
 		JPanel panel = new JPanel();
 		panel.setLayout(null);
-		panel.setBackground(Color.CYAN);
+		panel.setBackground(SystemColor.scrollbar);
 		panel.setBounds(10, 11, 1252, 103);
 		contentPane.add(panel);
 		
@@ -86,7 +92,7 @@ public class Purinfo extends JInternalFrame {
 		txtpnPurchaseInformation.setForeground(Color.WHITE);
 		txtpnPurchaseInformation.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
 		txtpnPurchaseInformation.setEditable(false);
-		txtpnPurchaseInformation.setBackground(Color.CYAN);
+		txtpnPurchaseInformation.setBackground(SystemColor.scrollbar);
 		txtpnPurchaseInformation.setBounds(533, 11, 287, 31);
 		panel.add(txtpnPurchaseInformation);
 		
@@ -100,7 +106,7 @@ public class Purinfo extends JInternalFrame {
 			new Object[][] {
 			},
 			new String[] {
-				"BILL NUMBER", "SELLER CODE", "SELLER NAME", "REL SUPP.", "QUANTITY", "ITEM", "TOTAL", "SLT FEE", "EMERGENCY", "COMMISSION", "JAUNDICE", "RENT", "NET WEIGHT", "ADVANCE", "NET TOTAL", "DATE"
+				"BILL NUMBER", "SELLER CODE", "SELLER NAME", "REL SUPP.", "QUANTITY", "ITEM", "TOTAL", "SLT FEE", "EMERGENCY", "COMMISSION", "JAUNDICE", "RENT", "NET WEIGHT", "ADVANCE", "NET TOTAL", "DATE","BALANCE","NARRATION"
 			}
 		));
 		scrollPane.setViewportView(table);
@@ -155,6 +161,17 @@ public class Purinfo extends JInternalFrame {
 					{
 						System.out.println(ex);
 					}
+					int sum=0,sum1=0;
+					 
+					 for(int i=0; i<table.getRowCount();i++)
+					 {
+						 sum=sum+Integer.parseInt(table.getValueAt(i, 14).toString());
+						 sum1=sum1+Integer.parseInt(table.getValueAt(i, 16).toString());
+
+					 }
+					 
+					gnt.setText(Integer.toString(sum));
+					bt.setText(Integer.toString(sum1));
 					
 				}
 			});
@@ -210,6 +227,17 @@ public class Purinfo extends JInternalFrame {
 					{
 						System.out.println(ex);
 					}
+					int sum=0,sum1=0;
+					 
+					 for(int i=0; i<table.getRowCount();i++)
+					 {
+						 sum=sum+Integer.parseInt(table.getValueAt(i, 14).toString());
+						 sum1=sum1+Integer.parseInt(table.getValueAt(i, 16).toString());
+
+					 }
+					 
+					gnt.setText(Integer.toString(sum));
+					bt.setText(Integer.toString(sum1));
 				}
 			});
 			btnByBillNo.setBounds(1113, 164, 149, 31);
@@ -238,6 +266,17 @@ public class Purinfo extends JInternalFrame {
 					{
 						System.out.println(ex);
 					}
+					int sum=0,sum1=0;
+					 
+					 for(int i=0; i<table.getRowCount();i++)
+					 {
+						 sum=sum+Integer.parseInt(table.getValueAt(i, 14).toString());
+						 sum1=sum1+Integer.parseInt(table.getValueAt(i, 16).toString());
+
+					 }
+					 
+					gnt.setText(Integer.toString(sum));
+					bt.setText(Integer.toString(sum1));
 				}
 			});
 			btnBySeason.setBounds(833, 164, 149, 31);
@@ -250,6 +289,36 @@ public class Purinfo extends JInternalFrame {
 			bn.setBounds(1040, 164, 63, 31);
 			contentPane.add(bn);
 			bn.setColumns(10);
+			
+			JLabel lblNewLabel_1_6_2 = new JLabel("GRAND NET TOTAL");
+			lblNewLabel_1_6_2.setForeground(Color.RED);
+			lblNewLabel_1_6_2.setFont(new Font("Tahoma", Font.ITALIC, 14));
+			lblNewLabel_1_6_2.setBounds(662, 568, 132, 22);
+			contentPane.add(lblNewLabel_1_6_2);
+			
+			gnt = new JTextField();
+			gnt.setForeground(SystemColor.textHighlight);
+			gnt.setFont(new Font("Tahoma", Font.ITALIC, 14));
+			gnt.setEditable(false);
+			gnt.setColumns(10);
+			gnt.setBackground(Color.WHITE);
+			gnt.setBounds(804, 560, 147, 30);
+			contentPane.add(gnt);
+			
+			JLabel lblNewLabel_1_6_1 = new JLabel("BALANCE TOTAL");
+			lblNewLabel_1_6_1.setForeground(Color.RED);
+			lblNewLabel_1_6_1.setFont(new Font("Tahoma", Font.ITALIC, 14));
+			lblNewLabel_1_6_1.setBounds(972, 568, 104, 22);
+			contentPane.add(lblNewLabel_1_6_1);
+			
+			bt = new JTextField();
+			bt.setForeground(SystemColor.textHighlight);
+			bt.setFont(new Font("Tahoma", Font.ITALIC, 14));
+			bt.setEditable(false);
+			bt.setColumns(10);
+			bt.setBackground(Color.WHITE);
+			bt.setBounds(1086, 560, 147, 30);
+			contentPane.add(bt);
 			
 		
 		

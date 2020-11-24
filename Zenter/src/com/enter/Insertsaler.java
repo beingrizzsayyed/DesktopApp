@@ -25,18 +25,19 @@ import java.sql.ResultSet;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.SystemColor;
 
 
 
 public class Insertsaler extends JInternalFrame {
 
 	private JPanel contentPane;
-	private JTextField txtUpdateInformationOf;
 	private JTextField txtNote;
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_3;
 	private JTextField textField_4;
+	private JTextPane txtpnInsertInformationOf;
 
 	/**
 	 * Launch the application.
@@ -58,6 +59,8 @@ public class Insertsaler extends JInternalFrame {
 	 * Create the frame.
 	 */
 	public Insertsaler() {
+		setIconifiable(true);
+		setMaximizable(true);
 		
 		setTitle("INSERT SELLER");
 		setResizable(true);
@@ -72,20 +75,18 @@ public class Insertsaler extends JInternalFrame {
 		contentPane.setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBackground(Color.CYAN);
+		panel.setBackground(SystemColor.scrollbar);
 		panel.setBounds(10, 11, 783, 83);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
-		txtUpdateInformationOf = new JTextField();
-		txtUpdateInformationOf.setEditable(false);
-		txtUpdateInformationOf.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
-		txtUpdateInformationOf.setText("INSERT INFORMATION OF SELLER");
-		txtUpdateInformationOf.setHorizontalAlignment(SwingConstants.CENTER);
-		txtUpdateInformationOf.setForeground(Color.WHITE);
-		txtUpdateInformationOf.setBackground(Color.CYAN);
-		txtUpdateInformationOf.setBounds(213, 21, 365, 38);
-		panel.add(txtUpdateInformationOf);
+		txtpnInsertInformationOf = new JTextPane();
+		txtpnInsertInformationOf.setBackground(SystemColor.scrollbar);
+		txtpnInsertInformationOf.setForeground(Color.WHITE);
+		txtpnInsertInformationOf.setText("INSERT INFORMATION OF SELLER");
+		txtpnInsertInformationOf.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
+		txtpnInsertInformationOf.setBounds(231, 11, 368, 35);
+		panel.add(txtpnInsertInformationOf);
 		
 		txtNote = new JTextField();
 		txtNote.setBackground(Color.WHITE);

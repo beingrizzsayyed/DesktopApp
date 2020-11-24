@@ -32,6 +32,7 @@ import com.toedter.calendar.JDateChooser;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.SystemColor;
 
 public class Purchase extends JInternalFrame {
 	public static JTextField scode;
@@ -80,11 +81,13 @@ public class Purchase extends JInternalFrame {
 	 * Create the frame.
 	 */
 	public Purchase() {
+		setMaximizable(true);
+		setIconifiable(true);
 		setTitle("PURCHASE");
 		setResizable(true);
 		getContentPane().setBackground(Color.WHITE);
 		setClosable(true);
-		setBounds(100, 100, 1304, 739);
+		setBounds(100, 100, 1304, 788);
 		
 		JDesktopPane desktopPane = new JDesktopPane();
 		desktopPane.setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -93,7 +96,7 @@ public class Purchase extends JInternalFrame {
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
-		panel.setBackground(Color.CYAN);
+		panel.setBackground(SystemColor.scrollbar);
 		panel.setBounds(10, 11, 896, 233);
 		desktopPane.add(panel);
 		panel.setLayout(null);
@@ -192,18 +195,24 @@ public class Purchase extends JInternalFrame {
 		panel.add(date);
 		
 		sname = new JTextField();
+		sname.setBackground(Color.WHITE);
+		sname.setEditable(false);
 		sname.setFont(new Font("Tahoma", Font.ITALIC, 15));
 		sname.setColumns(10);
 		sname.setBounds(100, 145, 275, 30);
 		panel.add(sname);
 		
 		sphone = new JTextField();
+		sphone.setBackground(Color.WHITE);
+		sphone.setEditable(false);
 		sphone.setFont(new Font("Tahoma", Font.ITALIC, 15));
 		sphone.setColumns(10);
 		sphone.setBounds(100, 192, 232, 30);
 		panel.add(sphone);
 		
 		saddress = new JTextField();
+		saddress.setBackground(Color.WHITE);
+		saddress.setEditable(false);
 		saddress.setFont(new Font("Tahoma", Font.ITALIC, 15));
 		saddress.setColumns(10);
 		saddress.setBounds(497, 190, 369, 32);
@@ -245,7 +254,7 @@ public class Purchase extends JInternalFrame {
 		JPanel panel_1 = new JPanel();
 		panel_1.setLayout(null);
 		panel_1.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
-		panel_1.setBackground(Color.CYAN);
+		panel_1.setBackground(SystemColor.scrollbar);
 		panel_1.setBounds(10, 266, 896, 215);
 		desktopPane.add(panel_1);
 		
@@ -556,7 +565,7 @@ public class Purchase extends JInternalFrame {
 				table.selectAll();
 			}
 		});
-		add.setBackground(Color.LIGHT_GRAY);
+		add.setBackground(SystemColor.activeCaption);
 		add.setBounds(749, 177, 96, 27);
 		panel_1.add(add);
 		
@@ -679,6 +688,7 @@ public class Purchase extends JInternalFrame {
 		panel_2_1.add(rent);
 		
 		total = new JTextField();
+		total.setForeground(SystemColor.textHighlight);
 		total.setBackground(Color.WHITE);
 		total.setEditable(false);
 		total.setFont(new Font("Tahoma", Font.ITALIC, 15));
@@ -713,6 +723,7 @@ public class Purchase extends JInternalFrame {
 		panel_2_1.add(advance);
 		
 		nettotal = new JTextField();
+		nettotal.setForeground(SystemColor.textHighlight);
 		nettotal.setBackground(Color.WHITE);
 		nettotal.setEditable(false);
 		nettotal.setFont(new Font("Tahoma", Font.ITALIC, 15));
@@ -816,11 +827,12 @@ public class Purchase extends JInternalFrame {
 				
 			}
 		});
-		btnNewButton_1.setBackground(new Color(240, 240, 240));
+		btnNewButton_1.setBackground(SystemColor.activeCaption);
 		btnNewButton_1.setBounds(126, 634, 141, 44);
 		panel_2_1.add(btnNewButton_1);
 		
 		nwet = new JTextField();
+		nwet.setForeground(SystemColor.textHighlight);
 		nwet.setBackground(Color.WHITE);
 		nwet.setEditable(false);
 		nwet.setFont(new Font("Tahoma", Font.ITALIC, 15));

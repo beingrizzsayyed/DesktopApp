@@ -26,6 +26,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.awt.event.ActionEvent;
+import java.awt.SystemColor;
 
 public class Saldef extends JInternalFrame {
 
@@ -43,7 +44,6 @@ public class Saldef extends JInternalFrame {
 	private JTextField r200u;
 	private JTextField r225u;
 	private JTextField r250u;
-	private JTextField txtUpdateTheDefault;
 	private JTextField textField_1;
 	private JTextField textField_3;
 	private JTextField textField_4;
@@ -77,6 +77,8 @@ public class Saldef extends JInternalFrame {
 	 * Create the frame.
 	 */
 	public Saldef() {
+		setMaximizable(true);
+		setIconifiable(true);
 		setTitle("SALE DEFAULTS");
 		setResizable(true);
 		getContentPane().setBackground(Color.WHITE);
@@ -265,6 +267,7 @@ public class Saldef extends JInternalFrame {
 		contentPane.add(r250u);
 		
 		JButton upd = new JButton("UPDATE");
+		upd.setBackground(SystemColor.activeCaption);
 		upd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
@@ -339,21 +342,19 @@ public class Saldef extends JInternalFrame {
 		contentPane.add(upd);
 		
 		JPanel panel = new JPanel();
-		panel.setBackground(Color.CYAN);
+		panel.setBackground(SystemColor.scrollbar);
 		panel.setBounds(10, 11, 571, 84);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
-		txtUpdateTheDefault = new JTextField();
-		txtUpdateTheDefault.setEditable(false);
-		txtUpdateTheDefault.setHorizontalAlignment(SwingConstants.CENTER);
-		txtUpdateTheDefault.setBackground(Color.CYAN);
-		txtUpdateTheDefault.setForeground(Color.WHITE);
-		txtUpdateTheDefault.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
-		txtUpdateTheDefault.setText("UPDATE THE DEFAULT VALUES OF SALES HERE");
-		txtUpdateTheDefault.setBounds(10, 22, 515, 37);
-		panel.add(txtUpdateTheDefault);
-		txtUpdateTheDefault.setColumns(10);
+		JTextPane txtpnUpdateTheDefault = new JTextPane();
+		txtpnUpdateTheDefault.setForeground(Color.WHITE);
+		txtpnUpdateTheDefault.setEditable(false);
+		txtpnUpdateTheDefault.setBackground(SystemColor.scrollbar);
+		txtpnUpdateTheDefault.setText("UPDATE THE DEFAULT VALUES OF SALES HERE");
+		txtpnUpdateTheDefault.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
+		txtpnUpdateTheDefault.setBounds(41, 11, 485, 40);
+		panel.add(txtpnUpdateTheDefault);
 		
 		JPanel panel_2 = new JPanel();
 		panel_2.setLayout(null);

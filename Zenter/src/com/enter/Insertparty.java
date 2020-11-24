@@ -21,11 +21,11 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.awt.event.ActionEvent;
+import java.awt.SystemColor;
 
 public class Insertparty extends JInternalFrame {
 
 	private JPanel contentPane;
-	private JTextField txtInsertInformationOf;
 	private JTextField textField;
 	private JLabel lblPartyCode;
 	private JLabel scomt;
@@ -35,6 +35,7 @@ public class Insertparty extends JInternalFrame {
 	private JTextField textField_3;
 	private JTextField textField_4;
 	private JTextField textField_5;
+	private JTextPane txtpnInsertInformationOf;
 
 	/**
 	 * Launch the application.
@@ -56,6 +57,8 @@ public class Insertparty extends JInternalFrame {
 	 * Create the frame.
 	 */
 	public Insertparty() {
+		setIconifiable(true);
+		setMaximizable(true);
 		setTitle("INSERT PARTY");
 		setResizable(true);
 		getContentPane().setBackground(Color.WHITE);
@@ -69,19 +72,17 @@ public class Insertparty extends JInternalFrame {
 		
 		JPanel panel = new JPanel();
 		panel.setLayout(null);
-		panel.setBackground(Color.CYAN);
+		panel.setBackground(SystemColor.scrollbar);
 		panel.setBounds(10, 11, 783, 83);
 		contentPane.add(panel);
 		
-		txtInsertInformationOf = new JTextField();
-		txtInsertInformationOf.setText("INSERT INFORMATION OF PARTY");
-		txtInsertInformationOf.setHorizontalAlignment(SwingConstants.CENTER);
-		txtInsertInformationOf.setForeground(Color.WHITE);
-		txtInsertInformationOf.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
-		txtInsertInformationOf.setEditable(false);
-		txtInsertInformationOf.setBackground(Color.CYAN);
-		txtInsertInformationOf.setBounds(213, 21, 365, 38);
-		panel.add(txtInsertInformationOf);
+		txtpnInsertInformationOf = new JTextPane();
+		txtpnInsertInformationOf.setForeground(Color.WHITE);
+		txtpnInsertInformationOf.setBackground(SystemColor.scrollbar);
+		txtpnInsertInformationOf.setText("INSERT INFORMATION OF PARTY");
+		txtpnInsertInformationOf.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
+		txtpnInsertInformationOf.setBounds(211, 11, 358, 31);
+		panel.add(txtpnInsertInformationOf);
 		
 		textField = new JTextField();
 		textField.setText("NOTE :-");
@@ -98,7 +99,7 @@ public class Insertparty extends JInternalFrame {
 		txtpnPartyCodeIs.setForeground(Color.WHITE);
 		txtpnPartyCodeIs.setFont(new Font("Tahoma", Font.ITALIC, 15));
 		txtpnPartyCodeIs.setEditable(false);
-		txtpnPartyCodeIs.setBackground(Color.GREEN);
+		txtpnPartyCodeIs.setBackground(SystemColor.activeCaption);
 		txtpnPartyCodeIs.setBounds(612, 202, 181, 136);
 		contentPane.add(txtpnPartyCodeIs);
 		
@@ -203,7 +204,7 @@ public class Insertparty extends JInternalFrame {
 		});
 		btnNewButton.setForeground(Color.WHITE);
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
-		btnNewButton.setBackground(Color.GREEN);
+		btnNewButton.setBackground(SystemColor.activeCaption);
 		btnNewButton.setBounds(142, 400, 129, 30);
 		contentPane.add(btnNewButton);
 	}

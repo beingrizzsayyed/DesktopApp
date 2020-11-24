@@ -41,6 +41,8 @@ public class Purchaserep extends JInternalFrame {
 	private JTextField bal;
 	private JTextField paid;
 	private JTextField narrat;
+	private JTextField bt;
+	private JTextField gnt;
 
 	/**
 	 * Launch the application.
@@ -62,14 +64,17 @@ public class Purchaserep extends JInternalFrame {
 	 * Create the frame.
 	 */
 	public Purchaserep() {
+		setMaximizable(true);
+		setIconifiable(true);
+		setTitle("PURCHASE REPORT");
 		getContentPane().setBackground(Color.WHITE);
 		setClosable(true);
-		setBounds(100, 100, 1325, 731);
+		setBounds(100, 100, 1325, 770);
 		getContentPane().setLayout(null);
 		
 		JPanel panel = new JPanel();
 		panel.setLayout(null);
-		panel.setBackground(Color.CYAN);
+		panel.setBackground(SystemColor.scrollbar);
 		panel.setBounds(10, 11, 1290, 45);
 		getContentPane().add(panel);
 		
@@ -78,7 +83,7 @@ public class Purchaserep extends JInternalFrame {
 		txtpnPurchaseAccountsReport.setForeground(Color.WHITE);
 		txtpnPurchaseAccountsReport.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 25));
 		txtpnPurchaseAccountsReport.setEditable(false);
-		txtpnPurchaseAccountsReport.setBackground(Color.CYAN);
+		txtpnPurchaseAccountsReport.setBackground(SystemColor.scrollbar);
 		txtpnPurchaseAccountsReport.setBounds(435, 11, 410, 34);
 		panel.add(txtpnPurchaseAccountsReport);
 		
@@ -197,7 +202,7 @@ public class Purchaserep extends JInternalFrame {
 		table.setToolTipText("");
 		table.setSurrendersFocusOnKeystroke(true);
 		table.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
-		table.setFont(new Font("Tahoma", Font.ITALIC, 15));
+		table.setFont(new Font("Arial Black", Font.ITALIC, 15));
 		table.setFillsViewportHeight(true);
 		table.setColumnSelectionAllowed(true);
 		table.setCellSelectionEnabled(true);
@@ -218,7 +223,7 @@ public class Purchaserep extends JInternalFrame {
 					Connection  conn=DriverManager.getConnection(url,username,pass);
 					PreparedStatement ps;
 					ResultSet rs;
-					ps=conn.prepareStatement("select * from purchase where scode='"+sco+"'");
+					ps=conn.prepareStatement("select bno,scode,sname,rels,qnt,item,total,rent,netwet,adv,ntot,memo,bal,narrat from purchase where scode='"+sco+"'");
 					rs=ps.executeQuery();
 					table_1.setModel(DbUtils.resultSetToTableModel(rs));
 				}
@@ -226,6 +231,17 @@ public class Purchaserep extends JInternalFrame {
 				{
 					System.out.println(ex);
 				}
+				int sum=0,sum1=0;
+				 
+				 for(int i=0; i<table_1.getRowCount();i++)
+				 {
+					 sum=sum+Integer.parseInt(table_1.getValueAt(i, 10).toString());
+					 sum1=sum1+Integer.parseInt(table_1.getValueAt(i, 12).toString());
+
+				 }
+				 
+				gnt.setText(Integer.toString(sum));
+				bt.setText(Integer.toString(sum1));
 			}
 		});
 		btnLoadSelectedSeller.setBackground(SystemColor.activeCaption);
@@ -252,7 +268,7 @@ public class Purchaserep extends JInternalFrame {
 					ResultSet rs;
 					String sco=sc.getText();
 					String memo=(((JTextField) dateChooser1.getDateEditor().getUiComponent()).getText());
-					ps=conn.prepareStatement("select * from purchase where memo='"+memo+"' and pcode='"+sco+"'");
+					ps=conn.prepareStatement("select bno,scode,sname,rels,qnt,item,total,rent,netwet,adv,ntot,memo,bal,narrat from purchase where memo='"+memo+"' and scode='"+sco+"'");
 					rs=ps.executeQuery();
 					table_1.setModel(DbUtils.resultSetToTableModel(rs));
 				}
@@ -260,6 +276,16 @@ public class Purchaserep extends JInternalFrame {
 				{
 					System.out.println(ex);
 				}
+				int sum=0,sum1=0;
+				 
+				 for(int i=0; i<table_1.getRowCount();i++)
+				 {
+					 sum=sum+Integer.parseInt(table_1.getValueAt(i, 10).toString());
+					 sum1=sum1+Integer.parseInt(table_1.getValueAt(i, 12).toString());
+				 }
+				 
+				gnt.setText(Integer.toString(sum));
+				bt.setText(Integer.toString(sum1));
 			}
 		});
 		btnSortByDate.setBackground(SystemColor.activeCaption);
@@ -280,22 +306,22 @@ public class Purchaserep extends JInternalFrame {
 				model = (DefaultTableModel)table_1.getModel();
 				int sbnt=table_1.getSelectedRow();
 				sbn.setText(model.getValueAt(sbnt, 0).toString());
-				nt.setText(model.getValueAt(sbnt, 14).toString());
-				bal.setText(model.getValueAt(sbnt, 16).toString());
+				nt.setText(model.getValueAt(sbnt, 10).toString());
+				bal.setText(model.getValueAt(sbnt, 12).toString());
 			}
 		});
 		table_1.setModel(new DefaultTableModel(
 			new Object[][] {
 			},
 			new String[] {
-				"BILL NUMBER", "SELLER CODE", "SELLER NAME", "REL SUPP.", "QUANTITY", "ITEM", "TOTAL", "SLT FEE", "EMERGENCY", "COMM", "JAUNDICE", "RENT", "NET WEIGHT", "ADVANCE", "NET TOTAL", "DATE", "BALANCE", "NARRATION"
+				"BILL NUMBER", "SELLER CODE", "SELLER NAME", "REL SUPP.", "QUANTITY", "ITEM", "TOTAL", "RENT", "NET WEIGHT", "ADVANCE", "NET TOTAL", "DATE", "BALANCE", "NARRATION"
 			}
 		));
 		scrollPane_1.setViewportView(table_1);
 		table_1.setToolTipText("");
 		table_1.setSurrendersFocusOnKeystroke(true);
 		table_1.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
-		table_1.setFont(new Font("Tahoma", Font.ITALIC, 15));
+		table_1.setFont(new Font("Arial Black", Font.ITALIC, 15));
 		table_1.setFillsViewportHeight(true);
 		table_1.setColumnSelectionAllowed(true);
 		table_1.setCellSelectionEnabled(true);
@@ -304,7 +330,7 @@ public class Purchaserep extends JInternalFrame {
 		
 		JLabel lblNewLabel_1_4 = new JLabel("SELECTED BILL NUMBER");
 		lblNewLabel_1_4.setFont(new Font("Tahoma", Font.ITALIC, 14));
-		lblNewLabel_1_4.setBounds(10, 543, 162, 22);
+		lblNewLabel_1_4.setBounds(10, 586, 162, 22);
 		getContentPane().add(lblNewLabel_1_4);
 		
 		sbn = new JTextField();
@@ -313,7 +339,7 @@ public class Purchaserep extends JInternalFrame {
 		sbn.setEditable(false);
 		sbn.setColumns(10);
 		sbn.setBackground(Color.BLACK);
-		sbn.setBounds(182, 534, 72, 38);
+		sbn.setBounds(182, 577, 72, 38);
 		getContentPane().add(sbn);
 		
 		nt = new JTextField();
@@ -321,17 +347,17 @@ public class Purchaserep extends JInternalFrame {
 		nt.setEditable(false);
 		nt.setColumns(10);
 		nt.setBackground(Color.WHITE);
-		nt.setBounds(392, 542, 162, 30);
+		nt.setBounds(392, 585, 162, 30);
 		getContentPane().add(nt);
 		
 		JLabel lblNewLabel_1_5 = new JLabel("NET TOTAL");
 		lblNewLabel_1_5.setFont(new Font("Tahoma", Font.ITALIC, 14));
-		lblNewLabel_1_5.setBounds(306, 550, 82, 22);
+		lblNewLabel_1_5.setBounds(306, 593, 82, 22);
 		getContentPane().add(lblNewLabel_1_5);
 		
 		JLabel lblNewLabel_1_6 = new JLabel("BALANCE");
 		lblNewLabel_1_6.setFont(new Font("Tahoma", Font.ITALIC, 14));
-		lblNewLabel_1_6.setBounds(636, 550, 72, 22);
+		lblNewLabel_1_6.setBounds(636, 593, 72, 22);
 		getContentPane().add(lblNewLabel_1_6);
 		
 		bal = new JTextField();
@@ -339,31 +365,31 @@ public class Purchaserep extends JInternalFrame {
 		bal.setEditable(false);
 		bal.setColumns(10);
 		bal.setBackground(Color.WHITE);
-		bal.setBounds(718, 542, 147, 30);
+		bal.setBounds(718, 585, 147, 30);
 		getContentPane().add(bal);
 		
 		JLabel lblNewLabel_1_5_1 = new JLabel("PAID");
 		lblNewLabel_1_5_1.setFont(new Font("Tahoma", Font.ITALIC, 14));
-		lblNewLabel_1_5_1.setBounds(313, 638, 82, 22);
+		lblNewLabel_1_5_1.setBounds(313, 681, 82, 22);
 		getContentPane().add(lblNewLabel_1_5_1);
 		
 		paid = new JTextField();
 		paid.setFont(new Font("Tahoma", Font.ITALIC, 14));
 		paid.setColumns(10);
 		paid.setBackground(Color.WHITE);
-		paid.setBounds(399, 630, 162, 30);
+		paid.setBounds(399, 673, 162, 30);
 		getContentPane().add(paid);
 		
 		JLabel lblNewLabel_1_5_2 = new JLabel("NARRATION");
 		lblNewLabel_1_5_2.setFont(new Font("Tahoma", Font.ITALIC, 14));
-		lblNewLabel_1_5_2.setBounds(634, 638, 82, 22);
+		lblNewLabel_1_5_2.setBounds(634, 681, 82, 22);
 		getContentPane().add(lblNewLabel_1_5_2);
 		
 		narrat = new JTextField();
 		narrat.setFont(new Font("Tahoma", Font.ITALIC, 14));
 		narrat.setColumns(10);
 		narrat.setBackground(Color.WHITE);
-		narrat.setBounds(740, 635, 177, 30);
+		narrat.setBounds(740, 678, 177, 30);
 		getContentPane().add(narrat);
 		
 		JButton btnUpdate = new JButton("UPDATE");
@@ -400,8 +426,38 @@ public class Purchaserep extends JInternalFrame {
 			}
 		});
 		btnUpdate.setBackground(SystemColor.activeCaption);
-		btnUpdate.setBounds(1013, 635, 135, 30);
+		btnUpdate.setBounds(1013, 679, 135, 30);
 		getContentPane().add(btnUpdate);
+		
+		bt = new JTextField();
+		bt.setForeground(SystemColor.textHighlight);
+		bt.setFont(new Font("Tahoma", Font.ITALIC, 14));
+		bt.setEditable(false);
+		bt.setColumns(10);
+		bt.setBackground(Color.WHITE);
+		bt.setBounds(1127, 523, 147, 30);
+		getContentPane().add(bt);
+		
+		JLabel lblNewLabel_1_6_1 = new JLabel("BALANCE TOTAL");
+		lblNewLabel_1_6_1.setForeground(Color.RED);
+		lblNewLabel_1_6_1.setFont(new Font("Tahoma", Font.ITALIC, 14));
+		lblNewLabel_1_6_1.setBounds(1013, 531, 104, 22);
+		getContentPane().add(lblNewLabel_1_6_1);
+		
+		gnt = new JTextField();
+		gnt.setForeground(SystemColor.textHighlight);
+		gnt.setFont(new Font("Tahoma", Font.ITALIC, 14));
+		gnt.setEditable(false);
+		gnt.setColumns(10);
+		gnt.setBackground(Color.WHITE);
+		gnt.setBounds(845, 523, 147, 30);
+		getContentPane().add(gnt);
+		
+		JLabel lblNewLabel_1_6_2 = new JLabel("GRAND NET TOTAL");
+		lblNewLabel_1_6_2.setForeground(Color.RED);
+		lblNewLabel_1_6_2.setFont(new Font("Tahoma", Font.ITALIC, 14));
+		lblNewLabel_1_6_2.setBounds(703, 531, 132, 22);
+		getContentPane().add(lblNewLabel_1_6_2);
 
 	}
 }

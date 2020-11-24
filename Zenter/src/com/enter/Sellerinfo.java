@@ -28,6 +28,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.awt.event.ActionEvent;
+import java.awt.SystemColor;
 
 public class Sellerinfo extends JInternalFrame {
 
@@ -54,6 +55,8 @@ public class Sellerinfo extends JInternalFrame {
 	 * Create the frame.
 	 */
 	public Sellerinfo() {
+		setMaximizable(true);
+		setIconifiable(true);
 		setTitle("SELLER INFORMATION");
 		setResizable(true);
 		getContentPane().setBackground(Color.WHITE);
@@ -107,7 +110,7 @@ public class Sellerinfo extends JInternalFrame {
 			System.out.println(ex);
 		}
 		JPanel panel = new JPanel();
-		panel.setBackground(Color.CYAN);
+		panel.setBackground(SystemColor.scrollbar);
 		panel.setBounds(10, 11, 798, 103);
 		contentPane.add(panel);
 		panel.setLayout(null);
@@ -116,7 +119,7 @@ public class Sellerinfo extends JInternalFrame {
 		txtpnRegisteredSellerInformation.setEditable(false);
 		txtpnRegisteredSellerInformation.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
 		txtpnRegisteredSellerInformation.setForeground(Color.WHITE);
-		txtpnRegisteredSellerInformation.setBackground(Color.CYAN);
+		txtpnRegisteredSellerInformation.setBackground(SystemColor.scrollbar);
 		txtpnRegisteredSellerInformation.setText("REGISTERED SELLER INFORMATION ");
 		txtpnRegisteredSellerInformation.setBounds(211, 11, 386, 31);
 		panel.add(txtpnRegisteredSellerInformation);

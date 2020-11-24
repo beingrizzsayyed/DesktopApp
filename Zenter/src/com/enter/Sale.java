@@ -84,6 +84,8 @@ public class Sale extends JInternalFrame {
 	 * Create the frame.
 	 */
 	public Sale() {
+		setMaximizable(true);
+		setIconifiable(true);
 		setTitle("SALE");
 		setResizable(true);
 		getContentPane().setBackground(Color.WHITE);
@@ -102,7 +104,7 @@ public class Sale extends JInternalFrame {
 		JPanel panel_1 = new JPanel();
 		panel_1.setLayout(null);
 		panel_1.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
-		panel_1.setBackground(Color.CYAN);
+		panel_1.setBackground(SystemColor.scrollbar);
 		panel_1.setBounds(10, 272, 896, 215);
 		desktopPane.add(panel_1);
 		
@@ -370,14 +372,14 @@ public class Sale extends JInternalFrame {
 				table.selectAll();
 			}
 		});
-		add.setBackground(Color.LIGHT_GRAY);
+		add.setBackground(SystemColor.activeCaption);
 		add.setBounds(790, 177, 96, 27);
 		panel_1.add(add);
 		
 		JPanel panel = new JPanel();
 		panel.setLayout(null);
 		panel.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
-		panel.setBackground(Color.CYAN);
+		panel.setBackground(SystemColor.scrollbar);
 		panel.setBounds(10, 11, 896, 233);
 		desktopPane.add(panel);
 		
@@ -582,6 +584,7 @@ public class Sale extends JInternalFrame {
 		panel_2_1.add(rent);
 		
 		total = new JTextField();
+		total.setForeground(SystemColor.textHighlight);
 		total.setFont(new Font("Tahoma", Font.ITALIC, 15));
 		total.setEditable(false);
 		total.setColumns(10);
@@ -616,6 +619,7 @@ public class Sale extends JInternalFrame {
 		panel_2_1.add(advance);
 		
 		nettotal = new JTextField();
+		nettotal.setForeground(SystemColor.textHighlight);
 		nettotal.setFont(new Font("Tahoma", Font.ITALIC, 15));
 		nettotal.setEditable(false);
 		nettotal.setColumns(10);
@@ -711,11 +715,12 @@ public class Sale extends JInternalFrame {
 			}
 		});
 		btnNewButton_1.setFont(new Font("Tahoma", Font.ITALIC, 15));
-		btnNewButton_1.setBackground(SystemColor.menu);
+		btnNewButton_1.setBackground(SystemColor.activeCaption);
 		btnNewButton_1.setBounds(126, 634, 141, 44);
 		panel_2_1.add(btnNewButton_1);
 		
 		netweight = new JTextField();
+		netweight.setForeground(SystemColor.textHighlight);
 		netweight.setFont(new Font("Tahoma", Font.ITALIC, 15));
 		netweight.setEditable(false);
 		netweight.setColumns(10);

@@ -21,6 +21,7 @@ import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 
 import net.proteanit.sql.DbUtils;
+import java.awt.SystemColor;
 
 public class Partyinfo extends JInternalFrame {
 
@@ -47,6 +48,8 @@ public class Partyinfo extends JInternalFrame {
 	 * Create the frame.
 	 */
 	public Partyinfo() {
+		setIconifiable(true);
+		setMaximizable(true);
 		setTitle("PARTY INFORMATION");
 		setResizable(true);
 		getContentPane().setBackground(Color.WHITE);
@@ -100,19 +103,19 @@ public class Partyinfo extends JInternalFrame {
 			System.out.println(ex);
 		}
 		JPanel panel = new JPanel();
-		panel.setBackground(Color.CYAN);
+		panel.setBackground(SystemColor.scrollbar);
 		panel.setBounds(10, 11, 798, 103);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
-		JTextPane txtpnRegisteredSellerInformation = new JTextPane();
-		txtpnRegisteredSellerInformation.setEditable(false);
-		txtpnRegisteredSellerInformation.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
-		txtpnRegisteredSellerInformation.setForeground(Color.WHITE);
-		txtpnRegisteredSellerInformation.setBackground(Color.CYAN);
-		txtpnRegisteredSellerInformation.setText("REGISTERED SELLER INFORMATION ");
-		txtpnRegisteredSellerInformation.setBounds(211, 11, 386, 31);
-		panel.add(txtpnRegisteredSellerInformation);
+		JTextPane txtpnRegisteredPartyInformation = new JTextPane();
+		txtpnRegisteredPartyInformation.setForeground(Color.WHITE);
+		txtpnRegisteredPartyInformation.setBackground(SystemColor.scrollbar);
+		txtpnRegisteredPartyInformation.setEditable(false);
+		txtpnRegisteredPartyInformation.setText("REGISTERED PARTY INFORMATION ");
+		txtpnRegisteredPartyInformation.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
+		txtpnRegisteredPartyInformation.setBounds(208, 11, 380, 38);
+		panel.add(txtpnRegisteredPartyInformation);
 	}
 }
 

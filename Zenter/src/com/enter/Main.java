@@ -552,7 +552,7 @@ public class Main extends JFrame {
 		desktopPane.add(rate250up);
 		
 		JPanel panel_1 = new JPanel();
-		panel_1.setBackground(Color.CYAN);
+		panel_1.setBackground(SystemColor.scrollbar);
 		panel_1.setBounds(10, 11, 1321, 211);
 		desktopPane.add(panel_1);
 		panel_1.setLayout(null);
@@ -560,11 +560,38 @@ public class Main extends JFrame {
 		JTextPane txtpnZainabEnterprices = new JTextPane();
 		txtpnZainabEnterprices.setEditable(false);
 		txtpnZainabEnterprices.setForeground(Color.WHITE);
-		txtpnZainabEnterprices.setBackground(Color.CYAN);
+		txtpnZainabEnterprices.setBackground(SystemColor.scrollbar);
 		txtpnZainabEnterprices.setText("ZAINAB ENTERPRICES");
-		txtpnZainabEnterprices.setFont(new Font("Sylfaen", Font.BOLD | Font.ITALIC, 40));
-		txtpnZainabEnterprices.setBounds(411, 11, 457, 58);
+		txtpnZainabEnterprices.setFont(new Font("Sylfaen", Font.BOLD | Font.ITALIC, 50));
+		txtpnZainabEnterprices.setBounds(334, 11, 590, 78);
 		panel_1.add(txtpnZainabEnterprices);
+		
+		JTextPane txtpnMobileNo = new JTextPane();
+		txtpnMobileNo.setEditable(false);
+		txtpnMobileNo.setForeground(SystemColor.window);
+		txtpnMobileNo.setBackground(SystemColor.scrollbar);
+		txtpnMobileNo.setText("MOBILE NO     +919021540260");
+		txtpnMobileNo.setFont(new Font("Sylfaen", Font.PLAIN, 25));
+		txtpnMobileNo.setBounds(10, 100, 357, 40);
+		panel_1.add(txtpnMobileNo);
+		
+		JTextPane txtpnMailIdZakigmailcom = new JTextPane();
+		txtpnMailIdZakigmailcom.setEditable(false);
+		txtpnMailIdZakigmailcom.setForeground(SystemColor.window);
+		txtpnMailIdZakigmailcom.setBackground(SystemColor.scrollbar);
+		txtpnMailIdZakigmailcom.setText("MAIL ID    Zaki540260@gmail.com");
+		txtpnMailIdZakigmailcom.setFont(new Font("Sylfaen", Font.PLAIN, 25));
+		txtpnMailIdZakigmailcom.setBounds(10, 160, 391, 40);
+		panel_1.add(txtpnMailIdZakigmailcom);
+		
+		JTextPane txtpnAddressSangamnertalsangamnerDist = new JTextPane();
+		txtpnAddressSangamnertalsangamnerDist.setEditable(false);
+		txtpnAddressSangamnertalsangamnerDist.setForeground(SystemColor.window);
+		txtpnAddressSangamnertalsangamnerDist.setBackground(SystemColor.scrollbar);
+		txtpnAddressSangamnertalsangamnerDist.setText("ADDRESS\r\nSANGAMNER,TAL.SANGAMNER\r\nDIST. A.NAGAR , STATE  MAHARASHTRA\r\n422605");
+		txtpnAddressSangamnertalsangamnerDist.setFont(new Font("Sylfaen", Font.PLAIN, 20));
+		txtpnAddressSangamnertalsangamnerDist.setBounds(893, 96, 418, 115);
+		panel_1.add(txtpnAddressSangamnertalsangamnerDist);
 		
 		JPanel panel_2 = new JPanel();
 		panel_2.setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -828,7 +855,7 @@ public class Main extends JFrame {
 		txtpnInsertThePurchase.setForeground(Color.WHITE);
 		txtpnInsertThePurchase.setFont(new Font("Tahoma", Font.ITALIC, 15));
 		txtpnInsertThePurchase.setEditable(false);
-		txtpnInsertThePurchase.setBackground(Color.GREEN);
+		txtpnInsertThePurchase.setBackground(SystemColor.activeCaption);
 		txtpnInsertThePurchase.setBounds(610, 466, 181, 136);
 		desktopPane.add(txtpnInsertThePurchase);
 		

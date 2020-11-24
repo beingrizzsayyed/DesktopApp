@@ -27,12 +27,16 @@ import javax.swing.table.DefaultTableModel;
 import com.toedter.calendar.JDateChooser;
 
 import net.proteanit.sql.DbUtils;
+import javax.swing.JLabel;
+import java.awt.SystemColor;
 
 public class Saleinfo extends JInternalFrame {
 
 	private JPanel contentPane;
 	private JTable table;
 	private JTextField bn;
+	private JTextField gnt;
+	private JTextField bt;
 
 	/**
 	 * Launch the application.
@@ -54,11 +58,13 @@ public class Saleinfo extends JInternalFrame {
 	 * Create the frame.
 	 */
 	public Saleinfo() {
+		setMaximizable(true);
+		setIconifiable(true);
 		setTitle("SALE INFORMATION");
 		setResizable(true);
 		getContentPane().setBackground(Color.WHITE);
 		setClosable(true);
-		setBounds(100, 100, 1359, 590);
+		setBounds(100, 100, 1359, 660);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -67,7 +73,7 @@ public class Saleinfo extends JInternalFrame {
 		
 		JPanel panel = new JPanel();
 		panel.setLayout(null);
-		panel.setBackground(Color.CYAN);
+		panel.setBackground(SystemColor.scrollbar);
 		panel.setBounds(10, 11, 1323, 103);
 		contentPane.add(panel);
 		
@@ -76,7 +82,7 @@ public class Saleinfo extends JInternalFrame {
 		txtpnPurchaseInformation.setForeground(Color.WHITE);
 		txtpnPurchaseInformation.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
 		txtpnPurchaseInformation.setEditable(false);
-		txtpnPurchaseInformation.setBackground(Color.CYAN);
+		txtpnPurchaseInformation.setBackground(SystemColor.scrollbar);
 		txtpnPurchaseInformation.setBounds(554, 11, 220, 31);
 		panel.add(txtpnPurchaseInformation);
 		
@@ -145,6 +151,17 @@ public class Saleinfo extends JInternalFrame {
 					{
 						System.out.println(ex);
 					}
+					int sum=0,sum1=0;
+					 
+					 for(int i=0; i<table.getRowCount();i++)
+					 {
+						 sum=sum+Integer.parseInt(table.getValueAt(i, 12).toString());
+						 sum1=sum1+Integer.parseInt(table.getValueAt(i, 14).toString());
+
+					 }
+					 
+					gnt.setText(Integer.toString(sum));
+					bt.setText(Integer.toString(sum1));
 					
 				}
 			});
@@ -200,6 +217,17 @@ public class Saleinfo extends JInternalFrame {
 					{
 						System.out.println(ex);
 					}
+					int sum=0,sum1=0;
+					 
+					 for(int i=0; i<table.getRowCount();i++)
+					 {
+						 sum=sum+Integer.parseInt(table.getValueAt(i, 12).toString());
+						 sum1=sum1+Integer.parseInt(table.getValueAt(i, 14).toString());
+
+					 }
+					 
+					gnt.setText(Integer.toString(sum));
+					bt.setText(Integer.toString(sum1));
 				}
 			});
 			btnByBillNo.setBounds(1184, 164, 149, 31);
@@ -228,6 +256,17 @@ public class Saleinfo extends JInternalFrame {
 					{
 						System.out.println(ex);
 					}
+					int sum=0,sum1=0;
+					 
+					 for(int i=0; i<table.getRowCount();i++)
+					 {
+						 sum=sum+Integer.parseInt(table.getValueAt(i, 12).toString());
+						 sum1=sum1+Integer.parseInt(table.getValueAt(i, 14).toString());
+
+					 }
+					 
+					gnt.setText(Integer.toString(sum));
+					bt.setText(Integer.toString(sum1));
 				}
 			});
 			btnBySeason.setBounds(885, 164, 149, 31);
@@ -240,6 +279,36 @@ public class Saleinfo extends JInternalFrame {
 			bn.setBounds(1111, 164, 63, 31);
 			contentPane.add(bn);
 			bn.setColumns(10);
+			
+			JLabel lblNewLabel_1_6_2 = new JLabel("GRAND NET TOTAL");
+			lblNewLabel_1_6_2.setForeground(Color.RED);
+			lblNewLabel_1_6_2.setFont(new Font("Tahoma", Font.ITALIC, 14));
+			lblNewLabel_1_6_2.setBounds(748, 575, 132, 22);
+			contentPane.add(lblNewLabel_1_6_2);
+			
+			gnt = new JTextField();
+			gnt.setForeground(SystemColor.textHighlight);
+			gnt.setFont(new Font("Tahoma", Font.ITALIC, 14));
+			gnt.setEditable(false);
+			gnt.setColumns(10);
+			gnt.setBackground(Color.WHITE);
+			gnt.setBounds(890, 567, 147, 30);
+			contentPane.add(gnt);
+			
+			JLabel lblNewLabel_1_6_1 = new JLabel("BALANCE TOTAL");
+			lblNewLabel_1_6_1.setForeground(Color.RED);
+			lblNewLabel_1_6_1.setFont(new Font("Tahoma", Font.ITALIC, 14));
+			lblNewLabel_1_6_1.setBounds(1058, 575, 104, 22);
+			contentPane.add(lblNewLabel_1_6_1);
+			
+			bt = new JTextField();
+			bt.setForeground(SystemColor.textHighlight);
+			bt.setFont(new Font("Tahoma", Font.ITALIC, 14));
+			bt.setEditable(false);
+			bt.setColumns(10);
+			bt.setBackground(Color.WHITE);
+			bt.setBounds(1172, 567, 147, 30);
+			contentPane.add(bt);
 	}
 	public JDateChooser getDateChooser() {
 		return getDateChooser();

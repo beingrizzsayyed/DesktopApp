@@ -77,6 +77,7 @@ public class Insertparty extends JInternalFrame {
 		contentPane.add(panel);
 		
 		txtpnInsertInformationOf = new JTextPane();
+		txtpnInsertInformationOf.setEditable(false);
 		txtpnInsertInformationOf.setForeground(Color.WHITE);
 		txtpnInsertInformationOf.setBackground(SystemColor.scrollbar);
 		txtpnInsertInformationOf.setText("INSERT INFORMATION OF PARTY");
@@ -202,7 +203,7 @@ public class Insertparty extends JInternalFrame {
 				
 			}
 		});
-		btnNewButton.setForeground(Color.WHITE);
+		btnNewButton.setForeground(SystemColor.activeCaptionText);
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
 		btnNewButton.setBackground(SystemColor.activeCaption);
 		btnNewButton.setBounds(142, 400, 129, 30);

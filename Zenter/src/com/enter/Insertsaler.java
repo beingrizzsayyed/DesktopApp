@@ -81,6 +81,7 @@ public class Insertsaler extends JInternalFrame {
 		panel.setLayout(null);
 		
 		txtpnInsertInformationOf = new JTextPane();
+		txtpnInsertInformationOf.setEditable(false);
 		txtpnInsertInformationOf.setBackground(SystemColor.scrollbar);
 		txtpnInsertInformationOf.setForeground(Color.WHITE);
 		txtpnInsertInformationOf.setText("INSERT INFORMATION OF SELLER");
@@ -103,7 +104,7 @@ public class Insertsaler extends JInternalFrame {
 		txtpnSalerCodeIs.setEditable(false);
 		txtpnSalerCodeIs.setFont(new Font("Tahoma", Font.ITALIC, 15));
 		txtpnSalerCodeIs.setForeground(Color.WHITE);
-		txtpnSalerCodeIs.setBackground(Color.GREEN);
+		txtpnSalerCodeIs.setBackground(SystemColor.activeCaption);
 		txtpnSalerCodeIs.setText("SELLER CODE IS SET AS IDENTITY OF SELLER.\r\n\r\nSELLER CODE SHOUD BE UNIQUE FOR EACH SELLER.\r\n\r\n");
 		txtpnSalerCodeIs.setBounds(612, 198, 181, 136);
 		contentPane.add(txtpnSalerCodeIs);
@@ -212,8 +213,8 @@ public class Insertsaler extends JInternalFrame {
 			}
 		});
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
-		btnNewButton.setBackground(Color.GREEN);
-		btnNewButton.setForeground(Color.WHITE);
+		btnNewButton.setBackground(SystemColor.activeCaption);
+		btnNewButton.setForeground(SystemColor.activeCaptionText);
 		btnNewButton.setBounds(165, 384, 129, 30);
 		contentPane.add(btnNewButton);
 	}

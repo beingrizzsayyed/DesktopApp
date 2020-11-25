@@ -136,7 +136,7 @@ public class Salebill extends JInternalFrame {
 		table1.setToolTipText("");
 		table1.setSurrendersFocusOnKeystroke(true);
 		table1.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
-		table1.setFont(new Font("Tahoma", Font.ITALIC, 15));
+		table1.setFont(new Font("Arial Black", Font.ITALIC, 15));
 		table1.setFillsViewportHeight(true);
 		table1.setColumnSelectionAllowed(true);
 		table1.setCellSelectionEnabled(true);

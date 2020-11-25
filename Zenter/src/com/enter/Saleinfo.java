@@ -103,7 +103,7 @@ public class Saleinfo extends JInternalFrame {
 		table.setToolTipText("");
 		table.setSurrendersFocusOnKeystroke(true);
 		table.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
-		table.setFont(new Font("Tahoma", Font.ITALIC, 15));
+		table.setFont(new Font("Arial Black", Font.ITALIC, 15));
 		table.setFillsViewportHeight(true);
 		table.setColumnSelectionAllowed(true);
 		table.setCellSelectionEnabled(true);

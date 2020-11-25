@@ -602,7 +602,7 @@ public class Purchase extends JInternalFrame {
 		table.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 		table.setSurrendersFocusOnKeystroke(true);
 		table.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
-		table.setFont(new Font("Tahoma", Font.ITALIC, 15));
+		table.setFont(new Font("Arial Black", Font.ITALIC, 15));
 		table.setBackground(Color.WHITE);
 		
 		JLabel lblNewLabel_1 = new JLabel("ELEMENTS :-");

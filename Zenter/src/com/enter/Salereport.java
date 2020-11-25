@@ -115,7 +115,7 @@ public class Salereport extends JInternalFrame {
 		table.setToolTipText("");
 		table.setSurrendersFocusOnKeystroke(true);
 		table.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
-		table.setFont(new Font("Tahoma", Font.ITALIC, 15));
+		table.setFont(new Font("Arial Black", Font.ITALIC, 15));
 		table.setFillsViewportHeight(true);
 		table.setColumnSelectionAllowed(true);
 		table.setCellSelectionEnabled(true);
@@ -276,7 +276,7 @@ public class Salereport extends JInternalFrame {
 		table_1.setToolTipText("");
 		table_1.setSurrendersFocusOnKeystroke(true);
 		table_1.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
-		table_1.setFont(new Font("Tahoma", Font.ITALIC, 15));
+		table_1.setFont(new Font("Arial Black", Font.ITALIC, 15));
 		table_1.setFillsViewportHeight(true);
 		table_1.setColumnSelectionAllowed(true);
 		table_1.setCellSelectionEnabled(true);
